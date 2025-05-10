@@ -59,7 +59,11 @@ public class Player{
      * @return The hand of the {@link Player}, as an array of {@link Card}s.
      */
     public Card[] getHand(){
-        return this.hand.toArray(new Card[this.hand.size()]);
+        Card[] toReturn = new Card[this.hand.size()];
+        for(int i = 0; i < this.hand.size(); i++){
+            toReturn[i] = this.hand.get(this.hand.size()-i-1);
+        }
+        return toReturn;
     }
 
     /**
@@ -117,7 +121,7 @@ public class Player{
     }
 
     /**
-     * An override of the {@link toString} method of {@link Player}
+     * An override of the {@link toString} method of {@link Player}.
      * @return A {@link String}, with the {@link Player}'s name, age and hand seperated by commas, ending with a period.
      */
     @Override

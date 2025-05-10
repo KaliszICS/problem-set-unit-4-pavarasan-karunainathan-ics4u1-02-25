@@ -32,7 +32,12 @@ public class DiscardPile{
      * @return The {@link Card}s in the {@link DiscardPile}.
      */
     public Card[] getCards(){
-        return this.cards.toArray(new Card[this.cards.size()]);
+        /* Assuming this function is called less than addCard(), reversing the array would be better to preserve order. */
+        Card[] toReturn = new Card[this.cards.size()];
+        for(int i = 0; i < this.cards.size(); i++){
+            toReturn[i] = this.cards.get(this.cards.size()-i-1);
+        }
+        return toReturn;
     }
 
     /**
@@ -82,7 +87,7 @@ public class DiscardPile{
 
     /**
      * Overrides the {@link toString} method of {@link DiscardPile}.
-     * @return All {@link Card}s in the {@link DiscardPile} in {@link String} form, seperated by commas, ending with a period.
+     * @return All {@link Card}s in the {@link DiscardPile} in {@link String} form, seperated by commas, ending with a period. If the {@link DiscardPile} is empty, returns an empty {@link String}.
      */
     @Override
     public String toString(){
@@ -91,8 +96,10 @@ public class DiscardPile{
             returnString += this.cards.get(i).toString();
             if(i != 0){
                 returnString += ", ";
+            }else{
+                returnString += ".";
             }
         }
-        return returnString + ".";
+        return returnString;
     }
 }
