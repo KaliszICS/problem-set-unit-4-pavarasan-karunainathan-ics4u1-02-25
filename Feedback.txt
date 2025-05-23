@@ -1,0 +1,7 @@
+K(30%): 100
+I(30%): 99
+C(10%): 100
+A(30%): 100
+99.7%
+Use length/size instead of numbers to avoid magic numbers
+Can reuse addCard method in your constructor and reshuffle instead of rewriting the same code
